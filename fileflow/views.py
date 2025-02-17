@@ -9,3 +9,12 @@ def about(request):
 
 def login(request):
     return render(request, 'login.html')
+
+def team(request):
+    return render(request, 'team.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def services(request):
+    return render(request, 'services.html')
