@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Django Blog</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a> |
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'about' %}">About</a>
+        </nav>
+    </header>
+    
+    <content>
+        {% block content %}{% endblock %}
+    </content>
+
+    <footer>
+        <p>&copy; 2025 My Django Blog</p>
+    </footer>
+</body>
+</html>
