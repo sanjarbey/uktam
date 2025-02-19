@@ -18,3 +18,6 @@ def contact(request):
 
 def services(request):
     return render(request, 'services.html')
+
+def services(request):
+    return render(request, 'services.html')

@@ -8,4 +8,6 @@ urlpatterns = [
     path('team/', views.team, name='team'),  # localhost:8000/team/
     path('contact/', views.contact, name='contact'),  # localhost:8000/contact/
     path('services/', views.services, name='services'),  # localhost:8000/services/
+    
+   
 ]
