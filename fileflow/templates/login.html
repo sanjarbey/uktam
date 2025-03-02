@@ -13,22 +13,32 @@
 
           <h1 class="what_taital">Login </h1>
           <!-- <p class="amet_text">amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p> -->
+          {% if form.errors %}
+            <p class="error-message">Login yoki parol noto‘g‘ri!</p>
+          {% endif %}
           
          
-            <div class="row">
+          <form method="post">
+            {% csrf_token %}
+          <div class="row">
                 <div class="col-md-3 padding_left_0">
                 </div>
               
+                
                 <div class="col-md-6 padding_left_0">
                 <div class="mail_section">
-                  <input type="" class="mail_text_1" placeholder="username" name="username">
-                  <input type="password" class="mail_text_1" placeholder="12345678" name="password">
-                  <div class="send_bt"><a href="#">KIRISH</a></div>
+                  <label for="id_username">Username:</label>
+                  {{ form.username }}
+
+                  <label for="id_password">Password:</label>
+                  {{ form.password }}
+                  <div class="send_bt"><button type="submit">KIRISH</button></div>
                 </div>
               </div>
 
               <div class="col-md-3 padding_left_0">
             </div>
+          </form>
 
 
             </div>
