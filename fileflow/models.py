@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User  # Django ichki foydalanuvchi modeli
 
 # Create your models here.
 
@@ -8,7 +9,9 @@ class Friend(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     type = models.CharField(max_length=200)  # Turi
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='active')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
+    updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     
     def __str__(self):
         return self.firstname  # Admin panelda sarlavha ko'rsatiladi
@@ -20,7 +23,9 @@ class Partner(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     type = models.CharField(max_length=200)  # Turi
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='active')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
+    updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     
     def __str__(self):
         return self.firstname  # Admin panelda sarlavha ko'rsatiladi
@@ -48,7 +53,7 @@ class Position(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
     updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='active')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
 
     def __str__(self):
         return f"{self.title} ({self.get_level_display()})"
@@ -60,7 +65,9 @@ class Employee(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='active')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
+    updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     def __str__(self):
         return self.firstname  # Admin panelda sarlavha ko'rsatiladi
     
@@ -102,7 +109,8 @@ class Person(models.Model):
     document = models.FileField(upload_to='documents/', null=True, blank=True)  # Fayl qo'shish
     image = models.ImageField(upload_to='images/', null=True, blank=True)  # Rasm qo'shish
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='active')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+
    
     def __str__(self):
         return self.firstname  # Admin panelda sarlavha ko'rsatiladi
@@ -112,6 +120,7 @@ class PersonDetails(models.Model):
     el1 = models.DecimalField(max_digits=20, decimal_places=4)  
     el2 = models.DecimalField(max_digits=20, decimal_places=4)  
     created_at = models.DateTimeField(auto_now_add=True)  # Qo‘shilgan vaqti
+    updated_at = models.DateTimeField(auto_now=True)  
 
     def __str__(self):
         return f"{self.person.firstname} - el1: {self.el1}, el2: {self.el2}"
