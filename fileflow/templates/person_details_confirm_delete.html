@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="services_section layout_padding">
+    <div class="container">
+        <div class="delete-page">
+
+            <h2>"{{ object.person.firstname }} {{ object.person.lastname }}" ma'lumotlarini o‘chirmoqchimisiz?</h2>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" style="padding: 10px 20px; background: red; color: white;">Ha, o‘chirish</button>
+            </form>
+            <a href="{% url 'person-details-list' %}" style="display: block; margin-top: 10px; text-align: center; padding: 10px; background: gray; color: white;">Yo‘q, ortga qaytish</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="update-friend-page">
+  <h2>Do'stni Yangilash</h2>
+  <form method="post" class="update-friend-form">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn-submit">Yangilash</button>
+  </form>
+</div>
+{% endblock %}

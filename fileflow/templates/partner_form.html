@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="form-wrapper" style="margin: 30px auto;">
+    <h2>Hamkor ma'lumotlarini kiriting</h2>
+    <form method="post" enctype="multipart/form-data"  class="styled-form m-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="padding: 10px 20px; background: green; color: white;">Saqlash</button> 
+        <a href="{% url 'partner_list' %}" style="display: block; margin-top: 10px; text-align: center; padding: 10px; background: gray; color: white;">Ortga qaytish</a>
+    </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="services_section layout_padding">
+  <div class="container">
+      <div class="delete-page">
+        <strong style="font-size: 25px;">{{ person.firstname }}</strong>   -ni o'chirish
+        <form method="post" class="delete-form">
+          {% csrf_token %}
+          <p>Bu personani o'chirishni xohlaysizmi?</p>
+          <button type="submit" class="btn-delete">O'chirish</button>
+        </form>
+      </div>
+  </div>
+</div>
+{% endblock %}

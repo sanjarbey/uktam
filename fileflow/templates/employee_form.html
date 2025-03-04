@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="form-wrapper" style="margin: 30px auto;">
+    <h2>Xodim ma'lumotlarini kiriting</h2>
+    <form method="post" enctype="multipart/form-data"  class="styled-form m-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit mt-2">Saqlash</button>
+    </form>
+    <a href="{% url 'employee_list'  %}" style="display: block; width: 90%; text-align: center; margin-left: 5%; padding: 10px; background: rgb(22, 95, 4); color: aliceblue; text-decoration: none; border-radius: 10px;">
+        Ortga qaytish
+    </a>
+    
+</div>
+
+
+{% endblock %}

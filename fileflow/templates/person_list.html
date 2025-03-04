@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load custom_tags %}  custom_tags nomi bo'yicha faylni yuklaydi
+ <!-- Bu yerga yoziladi -->
+
+{% block content %}
+<!-- <div class="services_section layout_padding">
+  <div class="container"> -->
+
+  <div class="people-list-page" style="margin-bottom: 15px;">
+    <h2>Personlar Ro'yxati</h2>
+    <a href="{% url 'protected' %} " class="btn-custom btn-home m-2">Home</a>
+    <a href="{% url 'add_person' %}" class="btn-custom btn-friends m-2">Person qo'shish</a>
+
+    <div class="filter-form">
+      <form method="get" action="">
+        <div class="filters">
+          <div class="filter-item">
+              <label for="firstname">Ism:</label>
+              <input type="text" name="firstname" id="firstname" value="{{ request.GET.firstname }}" placeholder="Ism bo'yicha">
+          </div>
+      
+          <div class="filter-item">
+              <label for="lastname">Familiya:</label>
+              <input type="text" name="lastname" id="lastname" value="{{ request.GET.lastname }}" placeholder="Familiya bo'yicha">
+          </div>
+      
+          <div class="filter-item">
+              <label for="surename">Otasining ismi:</label>
+              <input type="text" name="surename" id="surename" value="{{ request.GET.surename }}" placeholder="Otasining ismi bo'yicha">
+          </div>
+      
+          <div class="filter-item">
+              <label for="is_published">Nashr etilgan:</label>
+              <select name="is_published" id="is_published">
+                  <option value="">Holat</option>
+                  <option value="true" {% if request.GET.is_published == 'true' %}selected{% endif %}>Ha</option>
+                  <option value="false" {% if request.GET.is_published == 'false' %}selected{% endif %}>Yo'q</option>
+              </select>
+          </div>
+      
+          <div class="filter-item">
+              <label for="sendstatus">Status:</label>
+              <select name="sendstatus" id="sendstatus">
+                  <option value="">Statusni tanlang</option>
+                  <option value="NEW" {% if request.GET.sendstatus == 'NEW' %}selected{% endif %}>Yangi</option>
+                  <option value="IN_REVIEW" {% if request.GET.sendstatus == 'IN_REVIEW' %}selected{% endif %}>Ko‘rib chiqilmoqda</option>
+                  <option value="APPROVED" {% if request.GET.sendstatus == 'APPROVED' %}selected{% endif %}>Tasdiqlangan</option>
+                  <option value="REJECTED" {% if request.GET.sendstatus == 'REJECTED' %}selected{% endif %}>Rad etilgan</option>
+              </select>
+          </div>
+      
+          <button type="submit">Filtrlash</button>
+      </div>
+      
+      </form>
+    </div>
+
+    <div class="table-wrapper mt-2">
+      <table class="person-table">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Ismi</th>
+            <th>Familiyasi</th>
+            <th>Otasining ismi</th>
+            <th>Status</th>
+            <th>Is Published</th>
+            <th>Amallar</th>
+            <th>Amallar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for person in people %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ person.firstname }}</td>
+              <td>{{ person.lastname }}</td>
+              <td>{{ person.surename }}</td>
+              <td>{{ person.sendstatus|dictvalue:"NEW=Yangi,IN_REVIEW=Ko‘rib chiqilmoqda,APPROVED=Tasdiqlangan,REJECTED=Rad etilgan" }}</td>
+              <td>{{ person.is_published|yesno:"Ha,Yo'q" }}</td>
+              <td class="actions">
+                <a href="{% url 'update_person' person.pk %}" class="btn-action update">Yangilash</a> 
+                <!-- |
+                <a href="{% url 'delete_person' person.pk %}" class="btn-action delete">O'chirish</a> -->
+              </td>
+              <td class="actions">
+                <!-- <a href="{% url 'update_person' person.pk %}" class="btn-action update">Yangilash</a> 
+                | -->
+                <a href="{% url 'delete_person' person.pk %}" class="btn-action delete">O'chirish</a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="6">Hozirda personlar mavjud emas.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- </div>
+  </div> -->
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="people-list-page" style="margin-bottom: 15px;">
+    <h2>Shaxsiy Tafsilotlar</h2>
+    <a href="{% url 'protected' %} " class="btn-custom btn-home m-2">Home</a>
+    <a href="{% url 'person-details-add' %}" class="btn-custom btn-friends m-2">+ Yangi tafsilot qo‘shish</a>
+   
+
+
+    <div class=" table table-bordered table-hover">
+        <table class="person-table">
+            <thead>
+
+                <tr>
+                    <th>#</th>
+                    <th>Shaxs</th>
+                    <th>Element 1</th>
+                    <th>Element 2</th>
+                    <th>Amallar</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detail in details %}
+                <tr>
+                    <td>{{ detail.id }}</td>
+                    <td>{{ detail.person.firstname }} {{ detail.person.lastname }}</td>
+                    <td>{{ detail.el1 }}</td>
+                    <td>{{ detail.el2 }}</td>
+                    <td class="actions">
+                        <a href="{% url 'person-details-update' detail.id %}" style="background: yellow; padding: 5px;">Tahrirlash</a>
+                    </td>
+                    <td class="actions">
+                        <a href="{% url 'person-details-delete' detail.id %}" style="background: red; padding: 5px; color: white;">O‘chirish</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    
+    {% endblock %}
+

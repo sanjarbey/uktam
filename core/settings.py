@@ -83,8 +83,11 @@ DATABASES = {
     }
 }
 
-LOGIN_URL = '/admin/login/'
-LOGOUT_REDIRECT_URL = '/admin/login/'
+LOGIN_REDIRECT_URL = '/'  # Login muvaffaqiyatli bo‘lsa, bosh sahifaga yo‘naltiradi
+LOGOUT_REDIRECT_URL = '/'  # Logout muvaffaqiyatli bo‘lsa, bosh sahifaga qaytaradi
+
+
+LOGIN_URL = '/login/'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

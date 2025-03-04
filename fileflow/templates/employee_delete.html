@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="services_section layout_padding">
+    <div class="container">
+        <div class="delete-page">
+                <h2>"{{ object.firstname }} {{ object.lastname }}" xodimini o‘chirmoqchimisiz?</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-delete mt-2">Ha, o‘chirish</button>
+                    <a href="{% url 'employee_list' %}" class="btn-submit mt-3">Yo‘q, ortga qaytish</a>
+                </form>
+                
+        </div>
+    </div>
+</div>
+{% endblock %}

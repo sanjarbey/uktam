@@ -1,0 +1,189 @@
+/* Forma o'rami */
+.form-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #3dec95;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Sarlavha */
+.form-wrapper h2 {
+    color: #0e0d0d;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.form-wrapper p {
+    color: #3711e4;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Input va Select */
+.styled-form input,
+.styled-form select,
+.styled-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size:large;
+    text-align: left;
+}
+
+/* Tugma */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #0056b3;
+}
+
+/* Mobil moslashuv */
+@media (max-width: 600px) {
+    .form-wrapper {
+        width: 90%;
+    }
+}
+
+
+/* O'chirish sahifasi dizayni */
+.delete-page {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #e79a9a;
+    border: 2px solid #12e012;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* Matn va sarlavha */
+.delete-page strong {
+    display: block;
+    font-size: 25px;
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+.delete-page p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* O'chirish tugmasi */
+.btn-delete {
+    padding: 12px 20px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-delete:hover {
+    background: #c9302c;
+}
+
+
+
+/* Navbar asosiy stil */
+.header_section {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logotip joylashuvi */
+.logo img {
+    width: 120px; /* Logotip o‘lchami */
+    height: auto;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700; /* Hoverda sariq rang */
+}
+
+/* Login / Logout tugmalari */
+.logout-button, .nav-link[href="{% url 'login' %}"] {
+    background: #ff4d4d;
+    color: white !important;
+    padding: 6px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-button:hover, .nav-link[href="{% url 'login' %}"]:hover {
+    background: #cc0000;
+}
+
+/* Admin havolasi */
+.nav-link[href="/admin/"] {
+    background: #4CAF50;
+    padding: 6px 15px;
+    border-radius: 5px;
+    color: white !important;
+    font-weight: 500;
+}
+
+.nav-link[href="/admin/"]:hover {
+    background: #388E3C;
+}
+
+/* Mobil uchun stil */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        margin: 5px 0;
+    }
+
+    .logout-button, .nav-link[href="{% url 'login' %}"], .nav-link[href="/admin/"] {
+        width: 100%;
+        display: block;
+    }
+}
+

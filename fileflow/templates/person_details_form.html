@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-wrapper" style="margin: 30px auto;">
+    
+        <h2>Tafsilotlarni kiriting</h2>
+        <form method="post" enctype="multipart/form-data"  class="styled-form m-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="padding: 10px 20px; background: green; color: white;">Saqlash</button>
+        </form>
+        <a href="{% url 'person-details-list' %}" style="display: block; margin-top: 10px; text-align: center; padding: 10px; background: gray; color: white;">Ortga qaytish</a>
+</div>
+{% endblock %}

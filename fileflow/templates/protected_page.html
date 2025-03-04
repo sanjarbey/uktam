@@ -1,0 +1,148 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Personlar{% endblock %}
+<!-- style css -->
+
+
+{% block content %}
+<div class="person-page">
+    <h2>Personlar</h2>
+    
+    <div style="margin-bottom: 15px;">
+        <a href="{% url 'friend_list' %}" class="btn-custom btn-friends">Friends</a>
+        <a href="{% url 'employee_list' %}" class="btn-custom btn-employees">Employees</a>
+        <a href="{% url 'position_list' %}" class="btn-custom btn-position">Positions</a>
+        <a href="{% url 'partner_list' %}" class="btn-custom btn-partners">Partners</a>
+        <a href="{% url 'person_list' %}" class="btn-custom btn-persons">Persons</a>
+        <a href="{% url 'person-details-list' %}" class="btn-custom btn-persons-detail">Persons Details</a>
+    </div>
+
+    <div class=" table table-bordered table-hover">
+        <table class="person-table">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th  >Familiyasi</th>
+                    <th>Ismi</th>
+                    <th>Otasi</th>
+                    <th>Type</th>
+                    <th>Send</th>
+                    <th>Sendstatus</th>
+                    <th>Employees</th>
+                    <th>Friends</th>
+                    <th>Partner</th>
+                    <th>El1</th>
+                    <th>El2</th>
+                    <th>Is published</th>
+                    <th>Document</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody  >
+                {% for person in persons %}
+                <tr  >
+                    <td>{{ person.id }}</td>
+                    <td>{{ person.lastname }}</td>
+                    <td>{{ person.firstname }}</td>
+                    <td>{{ person.surename }}</td>
+                    <td>{{ person.type }}</td>
+                    <td>{{ person.send }}</td>
+                    <td>{{ person.sendstatus }}</td>
+                    <td>
+                        <ul>
+                            {% for employee in person.persons.all %}
+                            <li>{{ employee.firstname }} - {{ employee.position }}</li>
+                            {% empty %}
+                            <li>Hech qanday employee mavjud emas.</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for friend in person.friend.all %}
+                            <li>{{ friend.firstname }} - {{ friend.type }}</li>
+                            {% empty %}
+                            <li>Hech qanday friend mavjud emas.</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for partner in person.partner.all %}
+                            <li>{{ partner.firstname }} - {{ partner.type }}</li>
+                            {% empty %}
+                            <li>Hech qanday partner mavjud emas.</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        {% with details=person.details.all %}
+                            {% if details %}
+                                {% for detail in details %}
+                                    {{ forloop.counter }}. {{ detail.el1 }}<br>
+                                {% endfor %}
+                            {% else %}
+                                Mavjud emas
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                    <td>                                                
+                        {% with details=person.details.all %}
+                            {% if details %}
+                                {% for detail in details %}
+                                    {{ forloop.counter }}. {{ detail.el2 }}<br>
+                                {% endfor %}
+                            {% else %}
+                                Mavjud emas
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                    <td>{{ person.get_is_published_display }}</td>
+                    <td>
+                        {% if person.document %}
+                            <a href="{{ person.document.url }}" download class="btn-download">Yuklab olish</a>
+                        {% else %}
+                            Hujjat mavjud emas
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        
+                        {% if person.image %}
+                            <a href="{{ person.image.url }}" download>
+                                <img src="{{ person.image.url }}" alt="Person Image" class="person-img">
+                            </a>
+                        {% else %}
+                            Rasm mavjud emas
+                        {% endif %}
+                    </td>
+                </tr>
+
+                {% empty %}
+                <tr>
+                    <td colspan="15" class="no-data">Hech qanday person mavjud emas.</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="15">Page {{ persons.number }} of {{ persons.paginator.num_pages }}</td>
+                </tr>
+                <tr>
+                    <td colspan="15">
+                        {% if persons.has_previous %}
+                        <a href="?page={{ persons.previous_page_number }}" class="pagination-btn">Previous</a>
+                        {% endif %}
+                        |
+                        {% if persons.has_next %}
+                        <a href="?page={{ persons.next_page_number }}" class="pagination-btn">Next</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

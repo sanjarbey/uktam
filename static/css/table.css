@@ -1,0 +1,289 @@
+/* 📌 Jadvalning umumiy ko'rinishi */
+.person-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid rgba(52, 13, 158, 0.7); /* Rang biroz yumshoq bo‘ldi */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Engil soyalar */
+}
+
+/* 📌 Sarlavha (thead) va pastki qism (tfoot) */
+.person-table thead,
+.person-table tfoot {
+    border: 2px solid rgb(52, 13, 158);
+    background: linear-gradient(135deg, #340d9e, #5a34c9); /* Sarlavha gradient fon */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* 📌 Har bir katak (th, td) */
+.person-table th,
+.person-table td {
+    border: 2px solid rgba(52, 13, 158, 0.5); /* Chegaralar yumshoqroq */
+    padding: 12px;
+    text-align: center;  /* Gorizontal markazlash */
+    vertical-align: middle; /* Vertikal markazlash */
+    transition: 0.3s ease-in-out; /* Yumshoq animatsiya */
+}
+
+/* 📌 Alternativ fon ranglari */
+.person-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* 📌 Hover effekti */
+.person-table tbody tr:hover {
+    background-color: #d9d9ff; /* Yengil ko‘k rang */
+    transform: scale(1.02); /* Biroz kattalashish */
+}
+
+/* 📌 Tugmalar uchun dizayn */
+.pagination-btn {
+    text-decoration: none;
+    padding: 7px 14px;
+    background-color: rgb(52, 13, 158);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 Tugma hover effekti */
+.pagination-btn:hover {
+    background-color: rgb(32, 8, 120);
+    transform: scale(1.1); /* Biroz kattalashish */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 📌 Tugma bosilganda (active) */
+.pagination-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.btn-custom {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-friends {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.btn-employees {
+    background: linear-gradient(135deg, #6c757d, #343a40);
+}
+
+.btn-partners {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+.btn-position {
+    background: linear-gradient(135deg, #bb0adf, #e40c78);
+}
+
+.btn-persons {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+.btn-persons-detail {
+    background: linear-gradient(135deg, #1dce34, #5d0cdf);
+}
+.btn-home {
+    background: linear-gradient(135deg, #dcd935, #f512a9);
+}
+
+/* 🔥 HOVER EFFECT */
+.btn-custom:hover {
+    transform: scale(1.07);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+}
+
+/* 🔥 ACTIVE EFFECT (Bosganda kichik o‘zgarish) */
+.btn-custom:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* 📌 Do‘st qo‘shish sahifasi */
+.friend-page {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #3e93e9; /* Engil kulrang fon */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    display: flex;
+    justify-content: center; /* Gorizontal markazlash */
+    align-items: center; /* Vertikal markazlash */
+    flex-direction: column; /* Ichidagi elementlarni vertikal joylash */
+    height: 100vh; /* To‘liq ekranni egallash */
+}
+
+/* 📌 Sahifa sarlavhasi */
+.add-friend-page h2 {
+    color: #171718;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 📌 Forma ichidagi elementlar */
+.add-friend-form p {
+    margin-bottom: 15px;
+}
+
+/* 📌 Input maydonlari */
+/* 📌 Oddiy holat */
+.add-friend-form input,
+.add-friend-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #92bae2;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+/* 📌 Hover holati */
+.add-friend-form input:hover,
+.add-friend-form select:hover {
+    border-color: #007bff;
+    background-color: #f1f9ff;
+}
+
+/* 📌 Fokus (inputga bosilganda) */
+.add-friend-form input:focus,
+.add-friend-form select:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* 📌 Invalid input (ma’lumot noto‘g‘ri kiritilganda) */
+.add-friend-form input:invalid {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+
+/* 📌 Tugma (Saqlash) */
+.add-friend-form label,
+.btn-save {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(41, 109, 10);
+    background: #28a74600; /* Yashil rang */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+/* 📌 Hover va bosilganda effekt */
+.btn-save:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+.btn-save:active {
+    background: #1e7e34;
+    transform: scale(0.98);
+}
+
+/* Umumiy sahifa dizayni */
+.people-list-page {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #c1ee87;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Sarlavhani markazga joylash */
+.people-list-page h2 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Filter formasi */
+/* Filter formasi */
+/* Filter formasi */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end; /* Tugmani inputlar bilan tekislash */
+}
+
+/* Har bir filter elementi (label + input/select) */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Label dizayni */
+.filter-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Input va Select dizayni */
+.filter-item input,
+.filter-item select {
+    width: 100%; /* Kengligini o‘zgartirish mumkin */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Filtrlash tugmasi */
+.filters button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    background: #0056b3;
+}
+
+/* Mobil moslashuv */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+
+    .filter-item input,
+    .filter-item select,
+    .filters button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div class="services_section layout_padding">
+  <div class="container"> -->
+      <div class="form-wrapper" style="margin: 30px auto;">
+        <h2>Person qo'shish</h2>
+        <form method="post" enctype="multipart/form-data" class="styled-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn-submit">Saqlash</button>
+        </form>
+      </div>
+  <!-- </div>
+</div> -->
+{% endblock %}

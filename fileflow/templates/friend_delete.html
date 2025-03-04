@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="delete-friend-page">
+    <h2>{{ friend.firstname }}'ni o'chirish</h2>
+    <form method="post" class="delete-friend-form">
+      {% csrf_token %}
+      <p>Bu do'stni o'chirishni xohlaysizmi?</p>
+      <button type="submit" class="btn-delete">O'chirish</button>
+    </form>
+  </div>
+{% endblock %}

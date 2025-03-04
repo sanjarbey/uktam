@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="people-list-page" style="margin-bottom: 15px;">
+    <h2>Hamkorlar ro‘yxati</h2>
+    <a href="{% url 'protected' %} " class="btn-custom btn-home m-2">Home</a>
+    <a href="{% url 'employee_add' %}" class="btn-custom btn-friends m-2">+ Yangi xodim qo‘shish</a>
+
+
+    <div class=" table table-bordered table-hover">
+        <table class="person-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ismi</th>
+                    <th>Familiyasi</th>
+                    <th>Lavozimi</th>
+                    <th>Amallar</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partner in partners %}
+                <tr>
+                    <td>{{ partner.id }}</td>
+                    <td>{{  partner.firstname }}</td>
+                    <td>{{ partner.lastname }}</td>
+                    <td>{{ partner.type }}</td>
+                    <td class="actions">
+                        <a href="{% url 'partner_update' partner.id %}" style="display: inline-block; margin-left: 10px; padding: 5px 10px; background: yellow;">Tahrirlash</a>
+                    </td>
+                    <td class="actions">
+                        <a href="{% url 'partner_delete' partner.id %}" style="display: inline-block; padding: 5px 10px; background: red; color: white;">O‘chirish</a>
+   
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

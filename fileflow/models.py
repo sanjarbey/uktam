@@ -9,7 +9,7 @@ class Friend(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     type = models.CharField(max_length=200)  # Turi
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Restore'), ('ondelete', 'Delete')], default='delete')
     created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
     updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     
@@ -23,7 +23,7 @@ class Partner(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     type = models.CharField(max_length=200)  # Turi
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Restore'), ('ondelete', 'Delete')], default='delete')
     created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
     updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     
@@ -53,7 +53,7 @@ class Position(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
     updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Restore'), ('ondelete', 'Delete')], default='delete')
 
     def __str__(self):
         return f"{self.title} ({self.get_level_display()})"
@@ -65,7 +65,7 @@ class Employee(models.Model):
     surename = models.CharField(max_length=200)  # Otasini ishmi
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Restore'), ('ondelete', 'Delete')], default='delete')
     created_at = models.DateTimeField(auto_now_add=True)   # Yaratilgan vaqt
     updated_at = models.DateTimeField(auto_now=True)       # Yangilangan vaqt
     def __str__(self):
@@ -109,7 +109,7 @@ class Person(models.Model):
     document = models.FileField(upload_to='documents/', null=True, blank=True)  # Fayl qo'shish
     image = models.ImageField(upload_to='images/', null=True, blank=True)  # Rasm qo'shish
     status = models.CharField(max_length=45, choices=[('active', 'Active'), ('inactive', 'Inactive')], default='active')
-    delete = models.CharField(max_length=45, choices=[('delete', 'Delete'), ('ondelete', 'Ondelete')], default='delete')
+    delete = models.CharField(max_length=45, choices=[('delete', 'Restore'), ('ondelete', 'Delete')], default='delete')
 
    
     def __str__(self):

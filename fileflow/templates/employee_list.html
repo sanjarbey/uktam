@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="people-list-page" style="margin-bottom: 15px;">
+    <h2>Xodimlar ro‘yxati</h2>
+    <a href="{% url 'protected' %} " class="btn-custom btn-home m-2">Home</a>
+    <a href="{% url 'employee_add' %}" class="btn-custom btn-friends m-2">+ Yangi xodim qo‘shish</a>
+
+
+    <div class=" table table-bordered table-hover">
+        <table class="person-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ismi</th>
+                    <th>Familiyasi</th>
+                    <th>Lavozimi</th>
+                    <th>Amallar</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.firstname }}</td>
+                    <td>{{ employee.lastname }}</td>
+                    <td>{{ employee.position.title }}</td>
+                    <td class="actions">
+                        <a href="{% url 'employee_update' employee.id %}" class="btn-action update">Yangilash</a> 
+                    </td>
+                    <td class="actions">
+                        <a href="{% url 'employee_delete' employee.id %}" class="btn-action delete">O'chirish</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

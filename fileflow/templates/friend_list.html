@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Friends{% endblock %}
+
+{% block content %}
+<div class="friends-page m-3">
+    <h2 >Do'stlar</h2>
+    
+    <a href="{% url 'protected' %} " class="btn-custom btn-home m-2">Home</a>
+    <a href="{% url 'add_friend' %}" class="btn-custom btn-friends m-2">Do'st qo'shish</a>
+    
+    
+    
+    <div class=" table table-bordered table-hover"> 
+        <table class="person-table">
+            <thead>
+                <tr>
+                    <th>Ismi</th>
+                    <th>Familiyasi</th>
+                    <th>Otasining ismi</th>
+                    <th>Amallar</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for friend in friends %}
+                <tr>
+                    <td>{{ friend.firstname }}</td>
+                    <td>{{ friend.lastname }}</td>
+                    <td>{{ friend.type }}</td>
+                    <td class="actions">
+                        <a href="{% url 'update_friend' friend.pk %}" class="btn-action update">Yangilash</a>
+                        <!-- <a href="{% url 'delete_friend' friend.pk %}" class="btn-action delete">O'chirish</a> -->
+                    </td>
+                    <td class="actions">
+                        <!-- <a href="{% url 'update_friend' friend.pk %}" class="btn-action update">Yangilash</a> -->
+                        <a href="{% url 'delete_friend' friend.pk %}" class="btn-action delete">O'chirish</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
