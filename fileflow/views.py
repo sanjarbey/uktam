@@ -14,13 +14,13 @@ from .models import PersonDetails
 
 
 def home(request):
-    return render(request, 'home.html')
+    return redirect('login')
 
 def about(request):
     return render(request, 'about.html')
 
-def login(request):
-    return render(request, 'login.html')
+# def login(request):
+    # return render(request, 'login.html')
 
 def team(request):
     return render(request, 'team.html')

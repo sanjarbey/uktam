@@ -7,46 +7,47 @@
 
 
     <!-- login section start -->
-    <div class="contact_section layout_padding">
+    <!-- <div class="contact_section layout_padding">
 
-        <div class="container-fluid">
+        <div class="container-fluid"> -->
 
-          <h1 class="what_taital">Login </h1>
-          <!-- <p class="amet_text">amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p> -->
-
-          <div class="login-form">
-            <h2>Login</h2>
+            <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <div class="card p-4 shadow-lg" style="width: 400px;">
+                    <h2 class="text-center">Login</h2>
             
-            {% if form.errors %}
-                <p class="error-message">Login yoki parol noto‘g‘ri!</p>
-            {% endif %}
-    
-            <form method="post">
-                {% csrf_token %}
-                
-                <div>
-                    <label for="id_username">Username:</label>
-                    {{ form.username }}
-                </div>
-    
-                <div>
-                    <label for="id_password">Password:</label>
-                    {{ form.password }}
-                </div>
-                
-                <button type="submit">Login</button>
-            </form>
-        </div>
-          
-         
-          
-
-
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Xatolik!</strong> Login yoki parol noto‘g‘ri.
+                        </div>
+                    {% endif %}
             
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="id_username">Username:</label>
+                            {{ form.username }}
+                            {% if form.username.errors %}
+                                <small class="text-danger">{{ form.username.errors }}</small>
+                            {% endif %}
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="id_password">Password:</label>
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                                <small class="text-danger">{{ form.password.errors }}</small>
+                            {% endif %}
+                        </div>
+            
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+                    </form>
+                </div>
+            </div>
           
-        </div>
+        <!-- </div>
 
-      </div>
+      </div> -->
       <!-- login section end -->
   
 

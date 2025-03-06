@@ -31,12 +31,12 @@ from .views import (
 
 urlpatterns = [
      # Login sahifasi
-    path('login/', LoginView.as_view(template_name='login.html', next_page='protected'), name='login'),
+    path('login/', LoginView.as_view( next_page='protected'), name='login'),
     # Logout
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 
-    path('', views.index, name='login'),
-    path('login/', views.login, name='login'),  # localhost:8000/login/
+    path('', views.index, name='home'),
+    # path('login/', views.login, name='login'),  # localhost:8000/login/
     path('about/', views.about, name='about'),  # localhost:8000/about/
     path('team/', views.team, name='team'),  # localhost:8000/team/
     path('contact/', views.contact, name='contact'),  # localhost:8000/contact/
